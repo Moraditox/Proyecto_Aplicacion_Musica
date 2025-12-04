@@ -1,0 +1,97 @@
+# Archivos y carpetas a ignorar
+
+# Dependencias
+node_modules/
+vendor/
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Builds
+build/
+dist/
+*.ipa
+*.apk
+*.aab
+
+# iOS
+ios/Pods/
+ios/build/
+*.xcworkspace
+*.xcuserdata
+*.xcuserdatad
+DerivedData/
+
+# Android
+android/app/build/
+android/.gradle/
+*.keystore
+!debug.keystore
+
+# Expo
+.expo/
+.expo-shared/
+web-build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+
+# Archivos de audio y multimedia (opcional - descomenta si no quieres subir las canciones)
+# public/storage/songs/
+# public/storage/covers/
+# Canciones-portadas/
+
+# Archivos de base de datos locales
+*.sqlite
+*.sqlite3
+database.sqlite
+
+# Laravel específico
+storage/*.key
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*
+public/hot
+
+# Composer
+composer.phar
+composer.lock
+
+# NPM
+package-lock.json
+yarn.lock
+
+# EAS
+.eas/
+
+# Certificados y claves privadas
+*.p12
+*.mobileprovision
+*.certSigningRequest
+*.cer
+*.p8
