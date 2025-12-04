@@ -65,7 +65,7 @@ export default function PlayerScreen() {
                         </TouchableOpacity>
                         <Text style={styles.headerText}>Now Playing</Text>
                         <View style={styles.headerRight}>
-                            <FavoriteButton songId={currentSong.id} size={30} paddingHorizontal={-10}/>
+                            <FavoriteButton songId={currentSong.id} size={28} />
                         </View>
                     </View>
 
@@ -87,101 +87,11 @@ export default function PlayerScreen() {
                             {currentSong.artist}
                         </Text>
 
-                        {/* Shuffle and Repeat Controls */}
-                        <View style={styles.shuffleRepeatRow}>
-                            <TouchableOpacity
-                                style={styles.shuffleRepeatButtonInfo}
-                                onPress={toggleShuffle}
-                            >
-                                <Ionicons
-                                    name="shuffle"
-                                    size={26}
-                                    color={isShuffleOn ? "#FF2D55" : "#999"}
-                                />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style={styles.shuffleRepeatButtonInfo}
-                                onPress={toggleRepeat}
-                            >
-                                <Ionicons
-                                    name={repeatMode === 'one' ? "repeat-outline" : "repeat"}
-                                    size={26}
-                                    color={repeatMode !== 'off' ? "#FF2D55" : "#999"}
-                                />
-                                {repeatMode === 'one' && (
-                                    <Text style={styles.repeatOneTextInfo}>1</Text>
-                                )}
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    {/* Progress Bar */}
-                    <View style={styles.progressContainer}>
-                        <Slider
-                            style={styles.slider}
-                            minimumValue={0}
-                            maximumValue={duration || 1}
-                            value={position}
-                            onSlidingComplete={seekTo}
-                            minimumTrackTintColor="#FF2D55"
-                            maximumTrackTintColor="#333"
-                            thumbTintColor="#fff"
-                        />
-                        <View style={styles.timeContainer}>
-                            <Text style={styles.time}>{formatTime(position)}</Text>
-                            <Text style={styles.time}>{formatTime(duration)}</Text>
-                        </View>
-                    </View>
-
-                    {/* Volume Control */}
-                    <View style={styles.volumeContainer}>
-                        <Ionicons
-                            name={volume === 0 ? "volume-mute" : volume < 0.5 ? "volume-low" : "volume-medium"}
-                            size={20}
-                            color="#999"
-                        />
-                        <Slider
-                            style={styles.volumeSliderInline}
-                            minimumValue={0}
-                            maximumValue={1}
-                            value={volume}
-                            onValueChange={setVolume}
-                            minimumTrackTintColor="#FF2D55"
-                            maximumTrackTintColor="#333"
-                            thumbTintColor="#fff"
-                        />
-                        <Text style={styles.volumePercentage}>
-                            {Math.round(volume * 100)}%
-                        </Text>
-                    </View>
-
-                    {/* Controls */}
-                    <View style={styles.controls}>
-                        <TouchableOpacity style={styles.controlButton} onPress={() => {
-                            console.log("⏮ PREVIOUS button pressed");
-                            playPreviousSong();
-                        }}>
-                            <Ionicons name="play-skip-back" size={40} color="#fff" />
-                        </TouchableOpacity>
-
-                        <TouchableOpacity
-                            style={styles.playButton}
-                            onPress={togglePlayPause}
-                        >
-                            <BlurView intensity={20} style={styles.playButtonBlur}>
-                                <Ionicons
-                                    name={isPlaying ? 'pause' : 'play'}
-                                    size={44}
-                                    color="#fff"
-                                />
-                            </BlurView>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={styles.controlButton} onPress={() => {
-                            console.log("⏭ NEXT button pressed");
-                            playNextSong();
-                        }}>
-                            <Ionicons name="play-skip-forward" size={40} color="#fff" />
+                    {/* Bottom Controls */}
+                    <View style={styles.bottomControls}>
+                        <View style={styles.placeholder} />
+                        <TouchableOpacity>
+                            <Ionicons name="ellipsis-horizontal" size={24} color="#999" />
                         </TouchableOpacity>
                     </View>
                 </SafeAreaView>
@@ -345,6 +255,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
+        borderRadius: 28,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
     repeatOneTextInfo: {
         position: 'absolute',
@@ -361,3 +273,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
+

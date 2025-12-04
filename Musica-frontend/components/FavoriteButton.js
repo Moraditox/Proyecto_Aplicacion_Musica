@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 
 const API_URL = 'http://192.168.1.24:8000/api';
 
-export default function FavoriteButton({ songId, size = 28, color = '#FF2D55' }) {
+export default function FavoriteButton({ songId, size = 28, paddingHorizontal = 0, color = '#FF2D55' }) {
     const { token, isAuthenticated } = useAuth();
     const [isFavorite, setIsFavorite] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -77,6 +77,7 @@ export default function FavoriteButton({ songId, size = 28, color = '#FF2D55' })
             <Ionicons
                 name={isFavorite ? 'heart' : 'heart-outline'}
                 size={size}
+                paddingHorizontal={paddingHorizontal}
                 color={isFavorite ? color : '#999'}
             />
         </TouchableOpacity>
@@ -85,6 +86,6 @@ export default function FavoriteButton({ songId, size = 28, color = '#FF2D55' })
 
 const styles = StyleSheet.create({
     button: {
-        padding: 8,
+        paddingLeft: -10,
     },
 });
