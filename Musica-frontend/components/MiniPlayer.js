@@ -22,7 +22,7 @@ export default function MiniPlayer() {
             onPress={() => navigation.navigate('Player')}
             activeOpacity={0.9}
         >
-            <BlurView intensity={80} style={styles.blur}>
+            <BlurView intensity={40} style={styles.blurView}>
                 <Image
                     source={{ uri: currentSong.cover_url }}
                     style={styles.coverImage}
@@ -67,12 +67,14 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 8,
     },
-    blur: {
+    blurView: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 12,
-        backgroundColor: 'rgba(30, 30, 30, 0.8)',
+        borderRadius: 20,
+        overflow: 'hidden',
+        backgroundColor: 'rgba(255,255,255,0.10)',  // 10% opacity
     },
     coverImage: {
         width: 50,

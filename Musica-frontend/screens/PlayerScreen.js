@@ -256,7 +256,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     slider: {
-        width: '100%',
+        width: '98%',
+        alignSelf: 'center',
         height: 40,
     },
     timeContainer: {
